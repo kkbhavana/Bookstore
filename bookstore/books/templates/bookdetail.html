@@ -1,10 +1,41 @@
+{% extends 'home.html' %}
+
+{% block content%}
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
     <title>Detail View</title>
 </head>
 <body>
-<h1>Detail view</h1>
+<div class="card mb-3" style="max-width:1000px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{ object.image_url }}" class="card-img">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title">{{object.title}}</h4>
+                <p class="card-text">Author:{{object.author}}</p>
+                <p class="card-text"><i>Category:{{object.category}}</i></p>
+                <p class="card-text">{{object.description}}</p>
+                <p>Price:<span>&#8377;</span>{{ object.price| floatformat:2 }}</p>
+                {% if object.book_available is True %}
+                <a href="{% url 'checkout' object.pk %}" class="btn btn-outline" role="button">By now</a>
+                {% else %}
+                <h4 class="text-danger">Out of Stock...! </h4>
+                {% endif%}
+                <a href="" class="btn btn-outline" role="button">Wishlist</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
+{% endblock content %}
