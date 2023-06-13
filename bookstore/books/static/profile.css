@@ -1,0 +1,52 @@
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ box-sizing: border-box;
+}
+body{
+height:100vh;
+font-family: Arial, sans-serif;
+background-color:#DFE2F5;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#5e68a8;
+}
+.container{
+background-color:#FFFFFF;
+width:100%;
+max-width:800px;
+height:500px;
+padding:30px;
+}
+
+.content form{
+display:flex;
+ flex-wrap:wrap;
+ justify-content: space-between;
+
+ font-size:16px;
+ margin:30px;
+}
+.content form input {
+width:100%;
+height:35px;
+ font-size:16px;
+ padding:10px;
+ margin-top:10px;
+}
+.content form textarea {
+width:100%;
+height:90px;
+ font-size:16px;
+ padding:10px;
+ margin-top:10px;
+}
+
+
+form .input-box{
+ margin-bottom: 15px;
+ width:calc(100%/2 - 20px);
+
+}

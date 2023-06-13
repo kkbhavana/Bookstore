@@ -1,0 +1,49 @@
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ box-sizing: border-box;
+}
+
+body{
+height:100vh;
+font-family: Arial, sans-serif;
+}
+.login-container{
+width:100%;
+max-width:400px;
+text-align:center;
+margin-top:50px;
+margin-left:350px;
+padding:30px;
+color:#5e68a8;
+
+}
+.login-container h2{
+margin-bottom:20px;
+}
+.login-container input{
+margin-left:20px;
+border:none;
+padding:5px;
+}
+
+@media screen and (max-width: 600px){
+    .login-container{
+    margin-left:auto;
+    margin-right:auto;
+    padding:30px;
+
+    }
+}
+.btn-outline{
+color:#5e68a8;
+border:1px solid #5e68a8;
+margin-left:20px;
+margin-right:20px;
+}
+form .btn-outline:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
+}
