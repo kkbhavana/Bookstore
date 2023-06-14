@@ -30,6 +30,8 @@ padding:5px;
 
 @media screen and (max-width: 600px){
     .login-container{
+    width:100%;
+max-width:400px;
     margin-left:auto;
     margin-right:auto;
     padding:30px;

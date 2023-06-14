@@ -31,8 +31,11 @@ class CartItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f'{self.book.price*self.quantity}'
+        return f'{self.quantity}x{self.book}'
 
+    @property
+    def total_price(self):
+        return self.book.price * self.quantity
 
 class Profile(models.Model):
     first_name=models.CharField(max_length=150)

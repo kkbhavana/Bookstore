@@ -1,18 +1,21 @@
 {% extends 'home.html'%}
-{% block title %} Search {% endblock title%}
+{% block title %} Search {% endblock title %}
 {% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link rel="stylesheet" href="{% static 'search.css' %}">
     <title>Search</title>
 </head>
 <body>
 <h3 class="text-secondary">Search Results</h3><hr>
 {% for every in object_list %}
-<div>
-    <h3><a href="{% url 'detail' every.pk %}">{{every.title}}</a></h3>
-    <p>Author: {{ every.author }}</p>
+<div class="card-body"><a href="{% url 'detail' every.pk %}">
+    <h5 style="color:#5e68a8;">{{every.title}}</h5>
+    <p><i>Author: {{ every.author }}</i></p></a>
 </div>
 {% empty %}
 <h5 class="text-danger">Nothing found</h5>

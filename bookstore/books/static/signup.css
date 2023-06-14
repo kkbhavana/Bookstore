@@ -40,3 +40,14 @@ background-color:#9BA2D3;
 border:#9BA2D3;
 color:#FFFFFF;
 }
+
+@media screen and (max-width: 600px){
+    .signup-container{
+    width:100%;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:30px;
+
+    }
+}

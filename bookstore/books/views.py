@@ -1,9 +1,13 @@
+from decimal import Decimal
+
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import Book, Order, Profile, Cart, CartItem
 
@@ -36,7 +40,7 @@ class BookDetailView(DetailView):
     template_name = 'bookdetail.html'
 
 
-class BookCheckoutView(DetailView):
+class BookCheckoutView(LoginRequiredMixin, DetailView):
     model = Book
     template_name = 'checkout.html'
 
@@ -60,15 +64,44 @@ def cart(request):
         cart_obj = None
         cart_items = []
 
-        context = {
-            'cart': cart_obj,
-            'cart_items': cart_items
+    context = {
+        'cart': cart_obj,
+        'cart_items': cart_items
 
-        }
-        return render(request, 'mycart.html', context)
+    }
+    return render(request, 'mycart.html', context)
 
 
-class ProfileView(CreateView):
+@login_required
+def add_to_cart(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    cart_qs = Cart.objects.filter(user=request.user)
+    if cart_qs.exists():
+        cart_obj = cart_qs.first()
+    else:
+        cart_obj = Cart.objects.create(user=request.user, total_price=Decimal('0.00'))
+    cart_item, created = CartItem.objects.get_or_create(book=book, cart=cart_obj)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    cart_item.total_price += Decimal(str(book.price))
+    cart_obj.save()
+    return redirect('mycart')
+
+
+class ProfileView(LoginRequiredMixin,CreateView):
     model = Profile
     fields = '__all__'
+    success_url = reverse_lazy('profile')
+    template_name = 'profile.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ProfileView, self).form_valid(form)
+
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = Profile
+    fields = '__all__'
+    success_url = reverse_lazy('profile')
     template_name = 'profile.html'
