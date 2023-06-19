@@ -1,15 +1,16 @@
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
 
-from .models import Book, Order, Profile, Cart, CartItem
+from .models import Book, Order, Cart, CartItem, Profile
 
 
 # Create your views here.
@@ -84,24 +85,53 @@ def add_to_cart(request, book_id):
     if not created:
         cart_item.quantity += 1
         cart_item.save()
-    cart_item.total_price += Decimal(str(book.price))
+    cart_obj.total_price += Decimal(str(book.price))
     cart_obj.save()
     return redirect('mycart')
 
 
-class ProfileView(LoginRequiredMixin,CreateView):
+@login_required()
+def remove_from_cart(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    cart_qs = Cart.objects.filter(user=request.user)
+    if cart_qs.exists():
+        cart_obj = cart_qs.first()
+        cart_item_qs = CartItem.objects.filter(book=book, cart=cart_obj)
+        if cart_item_qs.exists():
+            cart_item = cart_item_qs.first()
+            if cart_item.quantity > 1:
+                cart_item.quantity -= 1
+                cart_item.save()
+            else:
+                cart_item.delete()
+            cart_obj.total_price -= Decimal(str(book.price))
+            cart_obj.save()
+    return redirect('mycart')
+
+
+class ProfileView(LoginRequiredMixin, ListView):
     model = Profile
-    fields = '__all__'
-    success_url = reverse_lazy('profile')
+    context_object_name = 'profile'
     template_name = 'profile.html'
+
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile']=context['profile'].filter(user=self.request.user)
+        return context
+
+class ProfileCreate(LoginRequiredMixin,CreateView):
+    model = Profile
+    fields = ['first_name','last_name','email','phone','address','alternative_address']
+    success_url = reverse_lazy('profile')
+    template_name = 'create_profile.html'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(ProfileView, self).form_valid(form)
+        form.instance.user=self.request.user
+        return super(ProfileCreate,self).form_valid(form)
 
-
-class ProfileUpdate(LoginRequiredMixin, UpdateView):
+class ProfileUpdate(LoginRequiredMixin,UpdateView):
     model = Profile
-    fields = '__all__'
+    fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'alternative_address']
     success_url = reverse_lazy('profile')
-    template_name = 'profile.html'
+    template_name = 'create_profile.html'

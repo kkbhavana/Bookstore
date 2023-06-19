@@ -26,11 +26,10 @@
 
                 <a id="add-to-cart-btn" class="btn btn-outline"  href="{% url 'add_to_cart' book_id=book.id %}" onclick="alert('item added to cart')">Cart</a>
                 {% if object.book_available is True %}
-                <a href="{% url 'checkout' object.pk %}" class="btn btn-outline" role="button">By now</a>
+                <a href="{% url 'checkout' object.pk %}" class="btn btn-outline" role="button">Buy now</a>
                 {% else %}
                 <h4 class="text-danger">Out of Stock...! </h4>
                 {% endif%}
-
 
             </div>
 

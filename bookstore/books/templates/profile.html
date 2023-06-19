@@ -12,9 +12,9 @@
 
     <h2>My Profile</h2>
     <div class="content">
-    <form method="post" action=" ">
+    <form method="get" >
     {% csrf_token %}
-         <div class="input-box">
+        <div class="input-box">
           <label  for="firstname" >First name</label>
           <input type="text"  id="firstname" placeholder="First name" required >
       </div>
@@ -38,12 +38,12 @@
           <label  for="anotheraddress" >Alternative addresss</label>
          <textarea id="anotheraddress"  placeholder="Alternative addresss" required></textarea>
       </div>
-         </form>
+
+
+
         </div>
 
-      <button type="submit" class="btn btn-outline">Submit</button>
-      <a href="{% url 'profile'  %}" class="btn btn-outline">Edit</a>
-
+<a href="{% url 'create-profile'  %}" class="btn btn-outline">Edit</a>
 
 </div>
 </body>
