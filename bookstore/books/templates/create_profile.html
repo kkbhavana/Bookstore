@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'create_profile.css'%}">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<h5>MY profile</h5>
+    <form method="post">
+       {% csrf_token %}
+    {{form.as_p}}
+        <input class="button" type="submit" value="Submit">
+
+    </form>
+</div>
+</body>
+</html>

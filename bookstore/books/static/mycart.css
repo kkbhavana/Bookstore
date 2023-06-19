@@ -1,0 +1,53 @@
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ box-sizing: border-box;
+}
+
+body{
+height:100vh;
+font-family: Arial, sans-serif;
+}
+.container-fluid{
+display:flex;
+flex-wrap:wrap;
+margin:30px;
+}
+img{
+margin-top:20px;
+margin-left:60px;
+}
+.card{
+padding:10px;
+margin-bottom:30px;
+text-align:center;
+}
+.card:hover{
+transform: scale(1.1);
+}
+.btn-outline{
+color:#5e68a8;
+border:1px solid #5e68a8;
+}
+.btn-outline:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
+}
+.btn-outline:active:hover{
+color:#5e68a8;
+border:1px solid #5e68a8;
+}
+
+.btn-success{
+color:#5e68a8;
+border:1px solid #5e68a8;
+background:transparent;
+}
+.btn-success:hover{
+color:#5e68a8;
+border:1px solid #5e68a8;
+background-color:#9BA2D3;
+}
+
