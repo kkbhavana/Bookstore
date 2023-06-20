@@ -8,17 +8,15 @@ body{
 height:100vh;
 font-family: Arial, sans-serif;
 }
-
-.check-container{
-width:100%;
-max-width:900px;
-height:400px;
-padding:30px;
-margin:60px;
-}
 img{
-height:380px
+height:450px;
+padding:30px;
 
+}
+.row{
+margin:60px;
+margin-left:auto;
+margin-right:auto;
 }
 
 

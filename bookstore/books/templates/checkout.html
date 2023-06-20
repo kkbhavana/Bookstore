@@ -8,16 +8,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <link rel="stylesheet" href="{% static 'checkout.css' %}">
     <title>Checkout</title>
 </head>
 <body>
-<div class="check-container">
     {% if object.book_available is True %}
     <div class="row">
         <div class="col-lg">
-            <div class="text-center" style=width:22rem;">
+            <div class="text-center" style=width:20rem;">
                 <img src="{{ object.image_url }}" class="card-img">
             </div>
         </div>
@@ -106,7 +106,7 @@
 		}).render('#paypal-button-container');
 	</script>
     {% endif %}
-</div>
+
 
 </body>
 </html>

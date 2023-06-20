@@ -9,19 +9,23 @@ body{
 height:100vh;
 font-family: Arial, sans-serif;
 }
-.container-fluid{
+.container-fluids h3{
+color:#5e68a8;
+}
+.container-fluids{
 display:flex;
 flex-wrap:wrap;
-margin:30px;
+margin:60px ;
 }
 img{
-margin-top:20px;
-margin-left:60px;
+padding:15px;
 }
 .card{
-padding:10px;
-margin-bottom:30px;
 text-align:center;
+border:1px solid #5e68a8;
+font-size:10px;
+margin-left:auto;
+margin-right:auto;
 }
 .card:hover{
 transform: scale(1.1);
@@ -29,6 +33,7 @@ transform: scale(1.1);
 .btn-outline{
 color:#5e68a8;
 border:1px solid #5e68a8;
+
 }
 .btn-outline:hover{
 background-color:#9BA2D3;
@@ -46,6 +51,11 @@ border:1px solid #5e68a8;
 background:transparent;
 }
 .btn-success:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
+}
+.btn-outline:hover:active{
 color:#5e68a8;
 border:1px solid #5e68a8;
 background-color:#9BA2D3;

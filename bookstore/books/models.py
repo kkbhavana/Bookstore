@@ -43,7 +43,7 @@ class Profile(models.Model):
     first_name=models.CharField(max_length=150)
     last_name=models.CharField(max_length=150)
     email=models.CharField(max_length=150)
-    phone=models.CharField(max_length=100)
+    phone=models.CharField(max_length=150)
     address=models.TextField(max_length=200)
     alternative_address=models.TextField(max_length=200,default='')
 

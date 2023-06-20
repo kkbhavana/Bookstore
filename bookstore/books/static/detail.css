@@ -10,6 +10,8 @@ font-family: Arial, sans-serif;
 }
 .mb-3{
 margin:60px;
+margin-left:auto;
+margin-right:auto;
 }
 img{
 padding:50px;

@@ -13,8 +13,9 @@ font-family: Arial, sans-serif;
 width:100%;
 max-width:400px;
 text-align:center;
-margin-top:50px;
-margin-left:350px;
+margin-top:60px;
+margin-left:auto;
+margin-right:auto;
 padding:30px;
 color:#5e68a8;
 
@@ -28,16 +29,6 @@ border:none;
 padding:5px;
 }
 
-@media screen and (max-width: 600px){
-    .login-container{
-    width:100%;
-max-width:400px;
-    margin-left:auto;
-    margin-right:auto;
-    padding:30px;
-
-    }
-}
 .btn-outline{
 color:#5e68a8;
 border:1px solid #5e68a8;
