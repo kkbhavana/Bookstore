@@ -10,14 +10,15 @@
     <title>Title</title>
 </head>
 <body>
-<h3>My Profile</h3>
+
 <div class="profile-container">
 
     <form method="post">
+        <h3>My Profile</h3>
        {% csrf_token %}
     {{form.as_p}}
-        <a class="btn btn-outline" href="#">Submit</a>
-<a href="{% url 'create-profile'  %}" class="btn btn-outline">Edit</a>
+        <input class="btn btn-outline" type="submit" value="Submit">
+
     </form>
 </div>
 </body>

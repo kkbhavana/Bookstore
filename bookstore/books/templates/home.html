@@ -27,10 +27,10 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'book' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{%url 'about' %}">About</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{%url 'contact' %}">Contact</a>
               </li>
             </ul>
 
@@ -41,7 +41,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     {% if user.is_authenticated %}
-                    <li><a class="dropdown-item" href="{% url 'create-profile' %}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
                      <li><a class="dropdown-item" href="{% url 'mycart' %}">My Cart</a></li>
                     <li><a class="dropdown-item" href="{% url 'logout'%}">Sign Out</a></li>
 
@@ -55,13 +55,6 @@
                 </ul>
             </div>
 
-            <form class="d-flex" role="search">
-
-                <button class="btn btn-outline-dark btn" type="submit" href="{% url 'mycart' %}">
-                    <i class="fa fa-shopping-cart"></i><span class="ms-1">Cart<span
-                        class="badge rounded-circle text-bg-dark m-1">0</span></span>
-                </button>
-            </form>
         </div>
     </div>
 </nav>
@@ -93,7 +86,7 @@
       <section class="">
         <p class="d-flex justify-content-center align-items-center">
           <span class="me-3">Sign up for reading</span>
-          <a type="button" class="btn btn-outline-light btn-rounded" href="{% url 'signup' %}">
+          <a type="button" class="btn btn-outline" href="{% url 'signup' %}">
             Sign up!
           </a>
         </p>

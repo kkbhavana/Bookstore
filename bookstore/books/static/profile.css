@@ -7,47 +7,36 @@
 body{
 height:100vh;
 font-family: Arial, sans-serif;
-background-color:#DFE2F5;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#5e68a8;
 }
-.container{
+
+.profile-container{
 background-color:#FFFFFF;
 width:100%;
-max-width:900px;
-height:500px;
+max-width:400px;
 padding:30px;
+color:#5e68a8;
+margin:60px;
+margin-left:auto;
+margin-right:auto;
 }
+.btn-outline{
+color:#5e68a8;
+border:1px solid #5e68a8;
 
-.content form{
-display:flex;
- flex-wrap:wrap;
- justify-content: space-between;
- font-size:16px;
- margin:30px;
 }
-.content form input {
-width:100%;
-max-width:270px;
-height:35px;
- font-size:16px;
- padding:10px;
- margin-top:10px;
+.btn-outline:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
 }
-.content form textarea {
-width:100%;
-max-width:270px;
-height:90px;
- font-size:16px;
- padding:10px;
- margin-top:10px;
+.btn-outline:active:hover{
+color:#5e68a8;
+border:1px solid #5e68a8;
 }
-
-
-form .input-box{
- margin-bottom: 15px;
- width:calc(100%/2 - 20px);
-
+.data{
+border:1px solid #000000;
+padding:5px;
+color:#000000;
+font-size:16px;
+margin-bottom:20px;
 }

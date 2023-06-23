@@ -8,10 +8,7 @@ body{
 height:100vh;
 font-family: Arial, sans-serif;
 }
-h3{
-color:#5e68a8;
-margin:50px;
-}
+
 .profile-container{
 background-color:#FFFFFF;
 width:100%;
@@ -23,6 +20,7 @@ align-items: center;
 color:#5e68a8;
 margin-left:auto;
 margin-right:auto;
+margin-top:60px;
 }
 
 form input {
@@ -42,6 +40,8 @@ padding:10px;
 .btn-outline{
 color:#5e68a8;
 border:1px solid #5e68a8;
+max-width:100px;
+width:100%;
 
 }
 .btn-outline:hover{

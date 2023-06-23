@@ -1,4 +1,6 @@
+{% extends 'home.html' %}
 
+{% block content %}
 
 {% load static %}
 <!DOCTYPE html>
@@ -6,48 +8,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta id="meta" name="viewport"
+          content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <link rel="stylesheet" href="{% static 'profile.css' %}">
     <title>Title</title>
 </head>
 <body>
-<div class="container">
 
-    <h2>My Profile</h2>
-    <div class="content">
-    <form method="get" >
-    {% csrf_token %}
-        <div class="input-box">
-          <label  for="firstname" >First name</label>
-          <input type="text"  id="firstname" placeholder="First name" required >
-      </div>
-         <div class="input-box">
-          <label  for="lastname" >Last name</label>
-          <input type="text"  id="lastname" placeholder="Last name" required >
-      </div>
-         <div class="input-box">
-          <label for="email" >Email</label>
-          <input type="email"  id="email" placeholder="Email" required >
+<div class="profile-container">
+    <h3>My Profile</h3>
+{% if profile.exists %}
+<form method="get">
+     {% csrf_token %}
+    {% for myprofile in profile %}
+    <div class="input-box">
+         <div class="label">Name:</div>
+        <div class="data">{{myprofile.first_name}}{{myprofile.last_name}}</div>
       </div>
     <div class="input-box">
-          <label for="phone" >Phone number</label>
-          <input type="tel"  id="phone" placeholder="Phone number" required >
-      </div>
-         <div class="input-box">
-          <label  for="address" >Addresss</label>
-         <textarea id="address"  placeholder="Address" required></textarea>
-      </div>
-        <div class="input-box">
-          <label  for="anotheraddress" >Alternative addresss</label>
-         <textarea id="anotheraddress"  placeholder="Alternative addresss" required></textarea>
+         <div class="label">Email:</div>
+        <div class="data">{{myprofile.email}}</div>
       </div>
 
-    </form>
+<div class="input-box">
+         <div class="label">Phone:</div>
+        <div class="data">{{myprofile.phone}}</div>
+      </div>
+    <div class="input-box">
+         <div class="label">Address:</div>
+        <div class="data">{{myprofile.address}}</div>
+      </div>
+     <div class="input-box">
+         <div class="label">Alternative address:</div>
+        <div class="data">{{myprofile.alternative_address}}</div>
+      </div>
 
-        </div>
+    <a class="btn btn-outline" href="{% url 'update-profile' myprofile.id %}">Edit</a>
+</form>
+    {%endfor%}
 
-
-
+{%else%}
+<a class="btn btn-outline" href="{% url 'create-profile' %}">Create</a>
+{% endif %}
 </div>
 </body>
 </html>
+
+{% endblock content %}

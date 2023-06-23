@@ -23,6 +23,11 @@
            <h5 class="card-title">{{books.title}}</h5>
                 <p class="card-text"><i>{{ books.category}}</i></p>
                  <p class="card-text"><span>&#8377;</span>{{ books.price}}</p>
+               <p>{% if books.book_available is True %}
+                <a class="text-success">Available</a>
+                {% else %}
+                <a class="text-danger">Out of Stock...! </a>
+                {%endif%}</p>
             <a href="{% url 'detail' books.id %}" class="btn btn-outline">View</a>
             </div>
         </div>

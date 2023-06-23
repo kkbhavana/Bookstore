@@ -13,6 +13,9 @@ margin-top:60px;
 border:1px solid #5e68a8;
 text-align:center;
 }
+.card a{
+text-decoration:none;
+}
 img{
 height: 15rem;
 width:5rem;
