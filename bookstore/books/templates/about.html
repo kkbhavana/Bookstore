@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+
+{% block content%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link rel="stylesheet" href=" {% static 'about.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<div class="about-container">
+    <span>Easy Reads </span><i>works to connect readers with independent booksellers all over the world.
+We believe local bookstores are essential community hubs that foster culture, curiosity, and a love of reading, and we're committed to helping them thrive.
+
+Every purchase on the site financially supports independent bookstores. Our platform gives independent bookstores tools to compete online and financial support to help them maintain their presence in local communities.</i>
+</div>
+</body>
+</html>
+{% endblock content %}

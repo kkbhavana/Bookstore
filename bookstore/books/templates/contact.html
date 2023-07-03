@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block content%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link rel="stylesheet" href=" {% static 'contact.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<div class="message_container">
+
+                <h4>Send Message</h4>
+    <div class="message_box">
+                <div class="input-box">
+          <label  class="details" for="name" >Your Name:</label>
+          <input type="text"  id="name" placeholder="Name" required >
+      </div>
+              <div class="input-box">
+          <label  class="details" for="email" >Your Email:</label>
+          <input type="text"  id="email" placeholder="Email" required >
+      </div>
+              <div class="input-box">
+          <label  class="details" for="feedback" >Your Feedback:</label>
+         <textarea name="feedback" id="feedback" required="required" placeholder="Type your message..."></textarea>
+      </div>
+            </div>
+    <div class="send_button">
+                  <input type="submit"class="btn btn-outline" value="Send">
+                </div>
+        </div>
+</body>
+</html>
+{% endblock content %}

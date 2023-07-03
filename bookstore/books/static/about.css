@@ -1,0 +1,27 @@
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ box-sizing: border-box;
+}
+
+body{
+height:100vh;
+font-family: Arial, sans-serif;
+}
+.about-container{
+width:100%;
+max-width:700px;
+justify-content: center;
+align-items: center;
+background-color:#FFFFFF;
+padding:30px;
+margin:60px;
+margin-left:auto;
+margin-right:auto;
+color:#5e68a8;
+line-height:30px;
+}
+.about-container span{
+font-weight:bold;
+}
