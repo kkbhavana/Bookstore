@@ -29,7 +29,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         return Book.objects.filter(
-            Q(title=query) | Q(author=query)
+            Q(title=query) | Q(author=query) |Q( category=query)
         )
 
 
