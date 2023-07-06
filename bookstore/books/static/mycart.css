@@ -33,9 +33,7 @@ transform: scale(1.1);
 .btn-outline{
 color:#5e68a8;
 border:1px solid #5e68a8;
-margin-right:30px;
 }
-
 .btn-outline:hover{
 background-color:#9BA2D3;
 border:#9BA2D3;
@@ -44,6 +42,7 @@ color:#FFFFFF;
 .btn-outline:active:hover{
 color:#5e68a8;
 border:1px solid #5e68a8;
+background:none;
 }
 
 .btn-success{
@@ -58,9 +57,9 @@ background-color:#9BA2D3;
 border:#9BA2D3;
 color:#FFFFFF;
 }
-.btn-outline:active:hover{
+
+.btn-success:active:hover{
 color:#5e68a8;
 border:1px solid #5e68a8;
-background-color:#9BA2D3;
+background:none;
 }
-
