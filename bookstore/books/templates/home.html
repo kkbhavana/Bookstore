@@ -39,9 +39,9 @@
                         aria-expanded="false"><i class='far fa-user'></i>
                      {{user}}
                 </button>
+                  {% if user.is_authenticated %}
                 <ul class="dropdown-menu">
 
-                    {% if user.is_authenticated %}
                     <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
