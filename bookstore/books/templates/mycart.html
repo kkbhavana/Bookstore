@@ -30,26 +30,29 @@
          <p>Price:{{cart_item.book.price }} per Book</p>
             <p>Quantity:{{cart_item.quantity}} Total:{{cart_item.total_price }}</p>
 <a class="btn btn-outline " href="{% url 'remove_from_cart' book_id=cart_item.book.id %}" onclick="alert('Item is removed')">Remove</a>
-      <a class="btn btn-success" href="{% url 'checkout' cart_item.book.id %}" onclick="alert('Payment Successfull')">Buy</a>
+
       </div>
 
     </div>
   </div>
 </div>
 
-
+</div>
 
 </div>
 
 
-</div>
      {% endfor %}
+<div class="buy-center">
 
+<a class="btn btn-success" href="#" onclick="alert('Payment Successfull')">Buy Now</a>
+</div>
 
     {% else %}
     <p>Your cart is empty</p>
     <a href="{% url 'book' %}">Continue Shopping</a>
 </div>
+
 {% endif %}
 
 </body>

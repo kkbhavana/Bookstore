@@ -44,13 +44,16 @@ color:#5e68a8;
 border:1px solid #5e68a8;
 background:none;
 }
-
+.buy-center{
+text-align:center;
+margin-top:50px;
+}
 .btn-success{
+font-size:20px;
 color:#5e68a8;
+padding:10px 50px;
 border:1px solid #5e68a8;
 background:transparent;
-float:right;
-margin-right:50px;
 }
 .btn-success:hover{
 background-color:#9BA2D3;
