@@ -16,10 +16,14 @@ from .models import Book, Order, Cart, CartItem, Profile
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
+
+
 def about(request):
-    return render(request,'about.html')
+    return render(request, 'about.html')
+
+
 def contact(request):
-    return render(request,'contact.html')
+    return render(request, 'contact.html')
 
 
 class SearchResultsView(ListView):
@@ -29,7 +33,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         return Book.objects.filter(
-            Q(title=query) | Q(author=query) |Q( category=query)
+            Q(title=query) | Q(author=query) | Q(category=query)
         )
 
 
@@ -118,23 +122,24 @@ class ProfileView(LoginRequiredMixin, ListView):
     context_object_name = 'profile'
     template_name = 'profile.html'
 
-
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['profile']=context['profile'].filter(user=self.request.user)
+        context['profile'] = context['profile'].filter(user=self.request.user)
         return context
 
-class ProfileCreate(LoginRequiredMixin,CreateView):
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['first_name','last_name','email','phone','address','alternative_address']
+    fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'alternative_address']
     success_url = reverse_lazy('profile')
     template_name = 'create_profile.html'
 
     def form_valid(self, form):
-        form.instance.user=self.request.user
-        return super(ProfileCreate,self).form_valid(form)
+        form.instance.user = self.request.user
+        return super(ProfileCreate, self).form_valid(form)
 
-class ProfileUpdate(LoginRequiredMixin,UpdateView):
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'alternative_address']
     success_url = reverse_lazy('profile')
