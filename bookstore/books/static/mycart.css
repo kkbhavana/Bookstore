@@ -27,12 +27,10 @@ font-size:10px;
 margin-left:auto;
 margin-right:auto;
 }
-.card:hover{
-transform: scale(1.1);
-}
 .btn-outline{
 color:#5e68a8;
 border:1px solid #5e68a8;
+margin-right:20px;
 }
 .btn-outline:hover{
 background-color:#9BA2D3;
@@ -40,28 +38,6 @@ border:#9BA2D3;
 color:#FFFFFF;
 }
 .btn-outline:active:hover{
-color:#5e68a8;
-border:1px solid #5e68a8;
-background:none;
-}
-.buy-center{
-text-align:center;
-margin-top:50px;
-}
-.btn-success{
-font-size:20px;
-color:#5e68a8;
-padding:10px 50px;
-border:1px solid #5e68a8;
-background:transparent;
-}
-.btn-success:hover{
-background-color:#9BA2D3;
-border:#9BA2D3;
-color:#FFFFFF;
-}
-
-.btn-success:active:hover{
 color:#5e68a8;
 border:1px solid #5e68a8;
 background:none;
